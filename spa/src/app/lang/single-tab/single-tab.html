@@ -1,0 +1,18 @@
+<h3>require 配置</h3>
+<pre>
+    'single-tab': 'single-tab/single-tab',
+</pre>
+<h3>pages 配置</h3>
+<pre>
+    'single-tab': {
+        parent: [{
+            title: '页面导航'
+        }],
+        html: 'single-tab/single-tab.html',
+        title: '单实例页面'
+    },
+</pre>
+<h3>API</h3>
+<pre>
+    esapp.route.change('single-tab', { single: true }, { id: 1 })
+</pre>

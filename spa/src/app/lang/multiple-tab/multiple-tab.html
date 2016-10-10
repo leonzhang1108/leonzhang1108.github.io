@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <!--<link rel="stylesheet" href="css/bootstrap-theme.css" media="screen" title="no title" charset="utf-8">-->
+    <link rel="stylesheet" href="../../../css/bootstrap-material-design.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="../../../css/ripples.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="../../../font/iconfont.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="../../../css/shell.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="../../../css/frame.css" media="screen" title="no title" charset="utf-8">
+    <!-- <link rel="stylesheet" href="app/theme-timeline.css" media="screen" title="no title" charset="utf-8"> -->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h3>require 配置</h3>
+    <pre>
+    'multiple-tab': 'multiple-tab/multiple-tab',
+</pre>
+    <h3>pages 配置</h3>
+    <pre>
+    'multiple-tab': {
+        parent: [{
+            title: '页面导航'
+        }],
+        html: 'multiple-tab/multiple-tab.html',
+        title: '多实例页面'
+    },
+</pre>
+    <h3>API</h3>
+    <pre>
+    esapp.route.change('multiple-tab', { single: false }, { id: 1 })
+</pre>
+
+    
+</body>
+
+</html>
