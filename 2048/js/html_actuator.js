@@ -29,9 +29,9 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
         self.message(false); // You lose
       } else if (metadata.won) {
         self.message(true); // You win!
+        document.getElementsByClassName('game-intro')[0].style.display = 'block'
       }
     }
-
   });
 };
 
