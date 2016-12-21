@@ -7,15 +7,12 @@ var cvs = document.getElementById('cvs');
 var ctx = cvs.getContext('2d');
 var drops = [];
 var charSet;
-var font = 'arial';
+var font = 'friends';
 var fontSize = 10;
 var doMatrix = function () {
 // Canvas fills window
-    cvs.height = window.innerHeight;
-    cvs.width = window.innerWidth;
-
-// Get canvas context
-
+    cvs.height = window.screen.height;
+    cvs.width = window.innerWidth * 0.98;
 
 // Set font, size & number of columns
 
@@ -49,9 +46,9 @@ function rain() {
         // Pick a random colour
         ctx.fillStyle = randColour();
         // Draw the char
-        ctx.fillText(char, col * fontSize, drops[col] * fontSize);
+            ctx.fillText(char, col * fontSize*3, drops[col] * fontSize*2);
         // Randomly reset drop back to top row
-        if (Math.random() > 0.99)
+        if (Math.random() > 0.8)
             drops[col] = 0;
 
         drops[col]++; // Move drop down a row
@@ -63,8 +60,10 @@ function randColour() {
         Math.floor(Math.random() * 256) + ',' +
         Math.floor(Math.random() * 256) + ',' +
         Math.floor(Math.random() * 256) + ')';
+    // return '#00FF00'
+
 }
-var source = Rx.Observable.timer(50, 50);
+var source = Rx.Observable.timer(80, 80);
 source.subscribe(() => rain());
 
-setTimeout(doMatrix, 1000)
+setTimeout(doMatrix, 100)
