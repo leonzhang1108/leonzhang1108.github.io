@@ -32,7 +32,6 @@ svg{width:94%;height:100%;position:absolute}
 .Merry tspan:nth-child(12){-webkit-animation:s 2s 12s linear forwards;animation:s 2s 12s linear forwards}
 .Merry tspan:nth-child(13){-webkit-animation:s 2s 13s linear forwards;animation:s 2s 13s linear forwards}
 .Merry tspan:nth-child(14){-webkit-animation:s 2s 14s linear forwards;animation:s 2s 14s linear forwards}
-.Merry tspan:nth-child(15){-webkit-animation:s 2s 15s linear forwards;animation:s 2s 15s linear forwards}
 .Christmas{font-size:64px;stroke-width:6}
 .Christmas tspan:nth-child(1){-webkit-animation:s 2s 16s linear forwards;animation:s 2s 16s linear forwards}
 .Christmas tspan:nth-child(2){-webkit-animation:s 2s 17s linear forwards;animation:s 2s 17s linear forwards}
@@ -50,6 +49,4 @@ svg{width:94%;height:100%;position:absolute}
 .Christmas tspan:nth-child(14){-webkit-animation:s 2s 29s linear forwards;animation:s 2s 29s linear forwards}
 .Christmas tspan:nth-child(15){-webkit-animation:s 2s 30s linear forwards;animation:s 2s 30s linear forwards}
 .Christmas tspan:nth-child(16){-webkit-animation:s 2s 31s linear forwards;animation:s 2s 31s linear forwards}
-.Christmas tspan:nth-child(17){-webkit-animation:s 2s 32s linear forwards;animation:s 2s 32s linear forwards}
-.Christmas tspan:nth-child(18){-webkit-animation:s 2s 33s linear forwards;animation:s 2s 33s linear forwards}
 tspan{color:#a32300}
