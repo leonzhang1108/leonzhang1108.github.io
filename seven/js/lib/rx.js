@@ -759,8 +759,8 @@
 
             case numberTag:
                 return (object !== +object) ?
-                other !== +other :
-                object === +other;
+                    other !== +other :
+                    object === +other;
 
             case regexpTag:
             case stringTag:
@@ -2389,7 +2389,7 @@
 
         OfEnumerator.prototype.next = function () {
             return ++this.i < this.l ?
-            { done: false, value: !this.fn ? this.s[this.i] : this.fn(this.s[this.i], this.i, this.s) } :
+                { done: false, value: !this.fn ? this.s[this.i] : this.fn(this.s[this.i], this.i, this.s) } :
                 doneEnumerator;
         };
 
