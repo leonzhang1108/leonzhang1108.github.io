@@ -14,8 +14,8 @@
 100%{-webkit-transform:translateY(50vh);transform:translateY(50vh);opacity:0}
 }
 html{height:100%}
-body{font-family:Calligraffitti;height:100%;scroll-behavior:smooth}
-svg{width:94%;height:100%;position:absolute}
+body{height:100%;scroll-behavior:smooth}
+svg{width:94%;height:100%;position:absolute;font-family:Calligraffitti}
 .Christmas,.Merry{fill:none;stroke:#fff;text-shadow:0 0 14px #a32300;stroke-width:4;stroke-dasharray:0 100;text-anchor:middle}
 .Merry{font-size:70px}
 .Merry tspan:nth-child(1){-webkit-animation:s 2s 1s linear forwards;animation:s 2s 1s linear forwards}
