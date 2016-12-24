@@ -1,4 +1,5 @@
 @font-face{font-family:friends;font-weight:400;src:url(../fonts/Friends.TTF) format('truetype');font-style:normal}
+@font-face{font-family:Calligraffitti;font-style:normal;font-weight:400;src:local('Calligraffitti'),local('Calligraffitti-Regular'),url(../fonts/Calligraffitti.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}
 body,html{background:#000;margin:0;padding:0}
 .l-wrapper{position:relative;width:800px;margin:0 auto;overflow:hidden}
 .l-logo{width:657px;height:71px;margin:63px auto 0;position:relative}
@@ -53,8 +54,9 @@ body,html{background:#000;margin:0;padding:0}
 .b-friends .episode{text-align:right;font-size:13px;color:#000;margin-top:7px}
 .b-ie{color:#fff;font:700 15px arial;margin:50px auto;width:250px}
 .friends-title{color:#fff;position:absolute;font-family:friends;width:100%;text-align:center;font-size:85px;margin-top:-35px;letter-spacing:41px}
-#cvs,#firework{position:fixed}
+#cvs{position:fixed}
 .b-pic{text-align:center;position:relative;padding:24px}
 .blessing{position:absolute;font-family:friends;margin:auto;color:#d8bd92;width:94%;bottom:27px;opacity:.5;background:#000;font-size:25px}
 .sf-snow-flake{position:fixed;top:-20px;z-index:99999}
 .sf-snow-anim{top:110%}
+#batman-iframe{width:99%;height:300px;border-image:none;border:none}
