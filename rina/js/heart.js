@@ -61,7 +61,7 @@ var c = document.getElementById('alx');
       a.fillStyle=gradient;
       a.textAlign="center";
       a.font="30px Verdana";
-      a.fillText("to Monica",c.width/2,90);
+      a.fillText("to Rina",c.width/2,90);
       a.fillStyle = "rgba(0,0,0,.2)";
       a.fillRect(0, 0, WIDTH, HEIGHT);
       for (i = v; i--;) {
