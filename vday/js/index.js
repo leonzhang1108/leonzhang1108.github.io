@@ -118,7 +118,7 @@ anim();
 if (window.console) {
     var cons = console;
     if (cons) {
-        cons.log("%c\n", "font-size:41px;background:url('../img/lobster.jpg') no-repeat -135px -1px");
+        cons.log("%c\n", "font-size:41px;background:url('http://leonzh.cc/vday/img/lobster.jpg') no-repeat -135px -1px");
         cons.log('I may not be your fisrt love, first kiss, first sight or fisrt date, ');
         cons.log('but I jsut want to be you last everything.')
 		cons.log('Your last boyfriend, your last OMG, your last fire in the hole, your last pain in the butt. ')
