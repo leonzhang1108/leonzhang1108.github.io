@@ -122,6 +122,6 @@ if (window.console) {
         cons.log('but I just want to be you last everything.')
 		cons.log('Your last boyfriend, your last OMG, your last fire in the hole, your last pain in the butt. ')
 		cons.log('And finally, I want to be your last name. ')
-        cons.meme("Lobster", "Hand in hand", "../img/lobster.jpg", 250, 100);
+        cons.meme("Lobster", "Hand in hand", "/img/lobster.jpg", 250, 100);
     }
 }
