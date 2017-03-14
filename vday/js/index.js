@@ -118,7 +118,7 @@ anim();
 if (window.console) {
     var cons = console;
     if (cons) {
-		cons.log('I may not be your fisrt love, first kiss, first sight or first date, ');
+		cons.log('I may not be your first love, first kiss, first sight or first date, ');
         cons.log('but I just want to be you last everything.')
 		cons.log('Your last boyfriend, your last OMG, your last fire in the hole, your last pain in the butt. ')
 		cons.log('And finally, I want to be your last name. ')
