@@ -102,7 +102,7 @@ HTML5新特性：canvas,">
 box-sizing：content-box, padding-box, border-box
 Doctype：告知浏览器的解析器用什么文档标准解析这个文档。HTML5不基于 SGML，因此不需要对DTD进行引用
 HTML5新特性：canvas,">
-<meta property="og:updated_time" content="2017-04-20T11:15:14.561Z">
+<meta property="og:updated_time" content="2017-04-20T15:35:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="need-a-little-change">
 <meta name="twitter:description" content="事件委托：就是不遍历绑事件，只绑在父元素，通过事件冒泡去实现子元素的事件触发
@@ -314,6 +314,7 @@ HTML5新特性：canvas,">
 <p><strong>Function.prototype.bind：</strong>改变this</p>
 <p><strong>媒体查询：</strong>@media screen and (min-width: 400px) and (max-width: 700px) { … }  根据不同媒体特性加载不同样式 demo</p>
 <p><strong>CSS预处理器：</strong>SAAS, LESS, Stylus  用过stylus, @属性减少维护量, 缩进让代码结构更加清晰, 复杂逻辑可用JS做</p>
+<p><strong>柯里化函数：</strong><br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">returnFun</span>(<span class="params">b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> add(a + b)</span><br><span class="line">  &#125;</span><br><span class="line">  returnFun.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> returnFun</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
