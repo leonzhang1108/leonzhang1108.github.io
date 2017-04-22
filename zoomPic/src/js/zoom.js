@@ -199,12 +199,11 @@ function wheelzoomCanvas(config) {
         }
         var canvasMouseDown = function (evt) {
             var e = evt
-            if (evt.targetTouches && evt.targetTouches.length == 1) {
-                e = evt.targetTouches[0]
-            } else if (evt.targetTouches && evt.targetTouches.length == 2) {
+            if (evt.targetTouches && evt.targetTouches.length == 2) {
                 distance = calculateDistance(evt)
                 return
             }
+            if (evt.targetTouches && evt.targetTouches.length == 1) e = evt.targetTouches[0]
             document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none'
             lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
             lastY = e.offsetY || (e.pageY - canvas.offsetTop)
@@ -215,13 +214,12 @@ function wheelzoomCanvas(config) {
         }
         var canvasMouseMove = function (evt) {
             var e = evt
-            if (evt.targetTouches && evt.targetTouches.length == 1) {
-                e = evt.targetTouches[0]
-            } else if (evt.targetTouches && evt.targetTouches.length == 2) {
+            if (evt.targetTouches && evt.targetTouches.length == 2) {
                 calculateDistance(evt) > distance ? zoom(.3) : zoom(-.3)
                 distance = calculateDistance(evt)
                 return
             }
+            if (evt.targetTouches && evt.targetTouches.length == 1) e = evt.targetTouches[0]
             lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
             lastY = e.offsetY || (e.pageY - canvas.offsetTop)
             dragged = true
