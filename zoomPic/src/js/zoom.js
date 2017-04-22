@@ -176,8 +176,8 @@ function wheelzoomCanvas(config) {
             var p2 = evt.targetTouches[1]
             var xDiff = p1.pageX - p2.pageX
             var yDiff = p1.pageY - p2.pageY
-            lastX = (p1.pageX + p2.pageX)/2
-            lastY = (p1.pageY + p2.pageY)/2
+            lastX = (p1.pageX + p2.pageX) / 2
+            lastY = (p1.pageY + p2.pageY) / 2
             return Math.pow((xDiff * xDiff + yDiff * yDiff), 0.5)
         }
         var handleScroll = function (evt) {
@@ -201,35 +201,37 @@ function wheelzoomCanvas(config) {
             var e = evt
             if (evt.targetTouches && evt.targetTouches.length == 1) {
                 e = evt.targetTouches[0]
-                document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none'
-                lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
-                lastY = e.offsetY || (e.pageY - canvas.offsetTop)
-                dragStart = context.transformedPoint(lastX, lastY)
-                dragged = false
-                evt.preventDefault()
-                evt.stopPropagation()
             } else if (evt.targetTouches && evt.targetTouches.length == 2) {
                 distance = calculateDistance(evt)
+                return
             }
+            document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none'
+            lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
+            lastY = e.offsetY || (e.pageY - canvas.offsetTop)
+            dragStart = context.transformedPoint(lastX, lastY)
+            dragged = false
+            evt.preventDefault()
+            evt.stopPropagation()
         }
         var canvasMouseMove = function (evt) {
             var e = evt
             if (evt.targetTouches && evt.targetTouches.length == 1) {
                 e = evt.targetTouches[0]
-                lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
-                lastY = e.offsetY || (e.pageY - canvas.offsetTop)
-                dragged = true
-                if (dragStart) {
-                    var pt = context.transformedPoint(lastX, lastY)
-                    context.translate(pt.x - dragStart.x, pt.y - dragStart.y)
-                    redraw(image)
-                }
-                evt.preventDefault()
-                evt.stopPropagation()
             } else if (evt.targetTouches && evt.targetTouches.length == 2) {
                 calculateDistance(evt) > distance ? zoom(.3) : zoom(-.3)
                 distance = calculateDistance(evt)
+                return
             }
+            lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
+            lastY = e.offsetY || (e.pageY - canvas.offsetTop)
+            dragged = true
+            if (dragStart) {
+                var pt = context.transformedPoint(lastX, lastY)
+                context.translate(pt.x - dragStart.x, pt.y - dragStart.y)
+                redraw(image)
+            }
+            evt.preventDefault()
+            evt.stopPropagation()
         }
         var canvasMouseUp = function (evt) {
             dragStart = null
