@@ -188,17 +188,21 @@ function wheelzoomCanvas(config) {
             return evt.preventDefault() && false
         }
         var canvasMouseDown = function (evt) {
+            var e = evt
+            if(evt.changedTouches) e = evt.changedTouches[0]
             document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none'
-            lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft)
-            lastY = evt.offsetY || (evt.pageY - canvas.offsetTop)
+            lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
+            lastY = e.offsetY || (e.pageY - canvas.offsetTop)
             dragStart = context.transformedPoint(lastX, lastY)
             dragged = false
             evt.preventDefault()
             evt.stopPropagation()
         }
         var canvasMouseMove = function (evt) {
-            lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft)
-            lastY = evt.offsetY || (evt.pageY - canvas.offsetTop)
+            var e = evt
+            if(evt.changedTouches) e = evt.changedTouches[0]
+            lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
+            lastY = e.offsetY || (e.pageY - canvas.offsetTop)
             dragged = true
             if (dragStart) {
                 var pt = context.transformedPoint(lastX, lastY)
@@ -217,10 +221,21 @@ function wheelzoomCanvas(config) {
             context.translate(-clientWidth / 2, -clientHeight / 2)
             redraw(image)
         }
-
         canvas.addEventListener('mousedown', canvasMouseDown, false)
         canvas.addEventListener('mousemove', canvasMouseMove, false)
         canvas.addEventListener('mouseup', canvasMouseUp, false)
+        canvas.addEventListener('touchstart', canvasMouseDown, false)
+        canvas.addEventListener('touchmove', canvasMouseMove, false)
+        canvas.addEventListener('touchend', canvasMouseUp, false)
+
+
+        canvas.addEventListener('pinch', function(){
+            alert('111')
+        }, false)
+
+
+
+
         rotateBtn.addEventListener('click', rotateClick, false)
         enlargeBtn.addEventListener('click', handleScroll, false)
         narrowBtn.addEventListener('click', handleScroll, false)
