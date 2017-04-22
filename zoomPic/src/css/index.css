@@ -65,6 +65,12 @@ html,body {
 }
 
 
+@media (max-width:1199px){
+    #inputUrl {
+        width: 90%;
+    }
+}
+
 
 
 @font-face {font-family: "iconfont";
