@@ -213,7 +213,6 @@ function wheelzoomCanvas(config) {
             }
         }
         var canvasMouseMove = function (evt) {
-            console.log(evt.targetTouches)
             var e = evt
             if (evt.targetTouches && evt.targetTouches.length == 1) {
                 e = evt.targetTouches[0]
@@ -228,7 +227,7 @@ function wheelzoomCanvas(config) {
                 evt.preventDefault()
                 evt.stopPropagation()
             } else if (evt.targetTouches && evt.targetTouches.length == 2) {
-                calculateDistance(evt) > distance ? zoom(.5) : zoom(-.5)
+                calculateDistance(evt) > distance ? zoom(.3) : zoom(-.3)
                 distance = calculateDistance(evt)
             }
         }
