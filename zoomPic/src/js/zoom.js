@@ -158,6 +158,7 @@ function wheelzoomCanvas(config) {
         canvas.width = clientWidth
         canvas.height = clientHeight
         var image = this
+        var distance = 0
 
         var lastX = this.width / 2, lastY = this.height / 2
         var dragStart, dragged
@@ -169,6 +170,15 @@ function wheelzoomCanvas(config) {
             context.scale(factor, factor)
             context.translate(-pt.x, -pt.y)
             redraw(image)
+        }
+        var calculateDistance = function (evt) {
+            var p1 = evt.targetTouches[0]
+            var p2 = evt.targetTouches[1]
+            var xDiff = p1.pageX - p2.pageX
+            var yDiff = p1.pageY - p2.pageY
+            lastX = (p1.pageX + p2.pageX)/2
+            lastY = (p1.pageY + p2.pageY)/2
+            return Math.pow((xDiff * xDiff + yDiff * yDiff), 0.5)
         }
         var handleScroll = function (evt) {
             var delta
@@ -189,28 +199,38 @@ function wheelzoomCanvas(config) {
         }
         var canvasMouseDown = function (evt) {
             var e = evt
-            if(evt.changedTouches) e = evt.changedTouches[0]
-            document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none'
-            lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
-            lastY = e.offsetY || (e.pageY - canvas.offsetTop)
-            dragStart = context.transformedPoint(lastX, lastY)
-            dragged = false
-            evt.preventDefault()
-            evt.stopPropagation()
+            if (evt.targetTouches && evt.targetTouches.length == 1) {
+                e = evt.targetTouches[0]
+                document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none'
+                lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
+                lastY = e.offsetY || (e.pageY - canvas.offsetTop)
+                dragStart = context.transformedPoint(lastX, lastY)
+                dragged = false
+                evt.preventDefault()
+                evt.stopPropagation()
+            } else if (evt.targetTouches && evt.targetTouches.length == 2) {
+                distance = calculateDistance(evt)
+            }
         }
         var canvasMouseMove = function (evt) {
+            console.log(evt.targetTouches)
             var e = evt
-            if(evt.changedTouches) e = evt.changedTouches[0]
-            lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
-            lastY = e.offsetY || (e.pageY - canvas.offsetTop)
-            dragged = true
-            if (dragStart) {
-                var pt = context.transformedPoint(lastX, lastY)
-                context.translate(pt.x - dragStart.x, pt.y - dragStart.y)
-                redraw(image)
+            if (evt.targetTouches && evt.targetTouches.length == 1) {
+                e = evt.targetTouches[0]
+                lastX = e.offsetX || (e.pageX - canvas.offsetLeft)
+                lastY = e.offsetY || (e.pageY - canvas.offsetTop)
+                dragged = true
+                if (dragStart) {
+                    var pt = context.transformedPoint(lastX, lastY)
+                    context.translate(pt.x - dragStart.x, pt.y - dragStart.y)
+                    redraw(image)
+                }
+                evt.preventDefault()
+                evt.stopPropagation()
+            } else if (evt.targetTouches && evt.targetTouches.length == 2) {
+                calculateDistance(evt) > distance ? zoom(.5) : zoom(-.5)
+                distance = calculateDistance(evt)
             }
-            evt.preventDefault()
-            evt.stopPropagation()
         }
         var canvasMouseUp = function (evt) {
             dragStart = null
@@ -227,14 +247,6 @@ function wheelzoomCanvas(config) {
         canvas.addEventListener('touchstart', canvasMouseDown, false)
         canvas.addEventListener('touchmove', canvasMouseMove, false)
         canvas.addEventListener('touchend', canvasMouseUp, false)
-
-
-        canvas.addEventListener('pinch', function(){
-            alert('111')
-        }, false)
-
-
-
 
         rotateBtn.addEventListener('click', rotateClick, false)
         enlargeBtn.addEventListener('click', handleScroll, false)
