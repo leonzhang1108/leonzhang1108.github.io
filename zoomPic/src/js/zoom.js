@@ -1,4 +1,3 @@
-var scope = {}
 function wheelzoomCanvas(config) {
 
     var canvas = config.canvas
@@ -280,8 +279,8 @@ function init(value) {
     wheelzoomCanvas({
         canvas: document.querySelector('canvas'),
         src: value,
-        clientWidth: document.body.clientWidth,
-        clientHeight: document.body.clientHeight
+        clientWidth: screen.width,
+        clientHeight: screen.height
     })
 }
 
