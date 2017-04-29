@@ -1,0 +1,31 @@
+@font-face{font-family:Raleway;font-style:normal;font-weight:400;src:local('Raleway'),local('Raleway-Regular'),url(../fonts/yQiAaD56cjx1AooMTSghGfY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Raleway;font-style:normal;font-weight:400;src:local('Raleway'),local('Raleway-Regular'),url(../fonts/0dTEPzkLWceF7z0koJaX1A.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}
+/*!
+ *  Font Awesome 4.1.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+*{margin:0;padding:0}
+body{background:#000;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding-top:150px;font:400 18px Raleway;color:#fff;text-align:center}
+h1{font-weight:400;font-size:36px;margin-bottom:75px}
+.envelope i{-webkit-transform:scale(10);-ms-transform:scale(10);transform:scale(10);opacity:.1}
+#cuboid{width:400px;margin:20px auto;-webkit-perspective:1000px;perspective:1000px}
+#cuboid form{-webkit-transform:translateZ(-20px);-ms-transform:translateZ(-20px);transform:translateZ(-20px);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;height:40px;-webkit-transition:all .35s;transition:all .35s}
+.cuboid-text{line-height:40px;height:40px;background:#1e3947;padding-right:25px}
+.loader{background:#2d566b;-webkit-animation:phase 1s infinite;animation:phase 1s infinite}
+@-webkit-keyframes phase{50%{background:#076391}
+}
+@keyframes phase{50%{background:#076391}
+}
+#type-in{background:#fff;outline:0;border:0 none;font:inherit;text-align:left;color:#2d566b;width:100%;padding:0 10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding-right:25px}
+#submit{display:none}
+.reset-icon,.submit-icon{position:absolute;top:0;right:0;color:hsla(30,50%,30%,.2);line-height:40px;padding:0 10px;-webkit-transition:all .5s;transition:all .5s;cursor:pointer}
+.submit-icon.active{color:#e8b27c}
+.reset-icon{color:hsla(0,100%,100%,.25);font-size:14px}
+#cuboid div{position:absolute;top:0;left:0;width:100%}
+#cuboid div:nth-child(1){-webkit-transform:rotateX(0) translateZ(20px);-ms-transform:rotateX(0) translateZ(20px);transform:rotateX(0) translateZ(20px)}
+#cuboid div:nth-child(2){-webkit-transform:rotateX(-90deg) translateZ(20px);-ms-transform:rotateX(-90deg) translateZ(20px);transform:rotateX(-90deg) translateZ(20px)}
+#cuboid div:nth-child(3){-webkit-transform:rotateX(-180deg) translateZ(20px);-ms-transform:rotateX(-180deg) translateZ(20px);transform:rotateX(-180deg) translateZ(20px)}
+#cuboid div:nth-child(4){-webkit-transform:rotateX(-270deg) translateZ(20px);-ms-transform:rotateX(-270deg) translateZ(20px);transform:rotateX(-270deg) translateZ(20px)}
+#cuboid form.ready,#cuboid form:hover{-webkit-transform:translateZ(-20px) rotateX(90deg);-ms-transform:translateZ(-20px) rotateX(90deg);transform:translateZ(-20px) rotateX(90deg)}
+#cuboid form.loading{-webkit-transform:translateZ(-20px) rotateX(180deg);-ms-transform:translateZ(-20px) rotateX(180deg);transform:translateZ(-20px) rotateX(180deg)}
+#cuboid form.complete{-webkit-transform:translateZ(-20px) rotateX(270deg);-ms-transform:translateZ(-20px) rotateX(270deg);transform:translateZ(-20px) rotateX(270deg)}

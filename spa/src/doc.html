@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <!--<link rel="stylesheet" href="css/bootstrap-theme.css" media="screen" title="no title" charset="utf-8">-->
+    <!--<link rel="stylesheet" href="css/bootstrap-material-design.css" media="screen" title="no title" charset="utf-8">-->
+    <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" media="screen" title="no title"
+          charset="utf-8">
+    <link rel="stylesheet" href="css/ripples.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="font/iconfont.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/shell.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/selector.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/select2.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/jsgrid.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/jsgrid-theme.css" media="screen" title="no title" charset="utf-8">
+    <!--<link rel="stylesheet" href="app/theme-timeline.css" media="screen" title="no title" charset="utf-8">-->
+    <style>
+
+    </style>
+</head>
+
+
+<body>
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation"
+         style="margin-bottom: 0;position: fixed;width: 100%;">
+        <div id="nav">
+            <div class="navbar-header">
+                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button> -->
+                <a class="navbar-brand" href="javascript:void(0)">Eshipping SPA Framework</a>
+                <ul id="shell-tabs" class="nav nav-tabs panel" role="tablist"
+                    style="float: right; position: absolute; bottom: 0; margin: 0 0 0 260px; background: transparent; border-bottom: none;">
+                    <li role="presentation" class="active">
+                        <a href="#home" data-value="home" id="home-tab" role="tab" data-toggle="tab"
+                           aria-controls="home" aria-expanded="true">首页</a></li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse" style="padding: 0 20px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:void(0)"><i class="iconfont icon-information"></i></a></li>
+                    <li class="dropdown">
+                        <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"
+                           aria-expanded="false">
+                            <i class="iconfont icon-account"></i>
+                            <b class="caret"></b>
+                            <div class="ripple-container"></div>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)" esapp-href="home">Home</a></li>
+                            <li><a href="javascript:void(0)" esapp-href="widget">控件/组建规范</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:void(0)" esapp-href="logout">Logout</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:void(0)" esapp-href="inputs">输入框</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:void(0)" esapp-href="single-tab">单实例页面</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:void(0)" esapp-href="multiple-tab">多实例页面</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav in" id="side-menu">
+                    <li>
+                        <a href="javascript:void(0)" esapp-href="widget">Widget 规范</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" esapp-href="widget-table">table 规范</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">UI 控件<i class="iconfont arrow icon-back"></i></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="javascript:void(0)" esapp-href="inputs">输入框</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">页面导航<i class="iconfont arrow icon-back"></i></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="javascript:void(0)" esapp-href="single-tab">单实例页面</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" esapp-href="multiple-tab">多实例页面</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper" class="container-fluid">
+        <!-- <ul id="shell-tabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#home" data-value="home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">首页</a></li>
+        </ul> -->
+        <div id="shell-contents" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+                <div class="tab-content">
+                    <div class="jumbotron">
+                        <h1>Hello, Eshipping!</h1>
+                        <p>Home Page</p>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.js"></script>
+
+<!-- Bootstrap Material Core JavaScript -->
+<script src="js/material.js"></script>
+
+<script type="text/javascript" src="js/lodash.js"></script>
+
+<!-- Bootstrap Material Datetimepicker Plugin JavaScript -->
+<script type="text/javascript" src="js/moment.js"></script>
+<script src="js/bootstrap-material-datetimepicker.js"></script>
+
+<!-- Ripples Core JavaScript -->
+<script src="js/ripples.js"></script>
+
+<!-- Handlebars JavaScript -->
+<script src="js/handlebars.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="js/metismenu.js"></script>
+
+<!-- ES component JavaScript -->
+<script src="js/util.js"></script>
+<!-- Route JavaScript -->
+<script src="js/path.min.js"></script>
+<!--Promise-->
+<!--<script src="js/bluebird.js"></script>-->
+<!--twitter typeahead-->
+<script src="js/typeahead/typeahead.bundle.min.js"></script>
+
+
+<!-- select2 -->
+<script src="js/select2.full.min.js"></script>
+
+<!-- rxjs -->
+<script src="js/rx.lite.js"></script>
+
+<!-- jsgrid -->
+<script src="js/jsgrid.js"></script>
+
+<script src="widget/db.js"></script>
+
+<!-- require JavaScript -->
+<script data-main="js/core.js" src="js/require.js"></script>
+
+
+<!-- Morris Charts JavaScript -->
+<!--<script src="js/raphael.js"></script>-->
+<!--<script src="js/morris.js"></script>-->
+
+<!-- Custom Theme JavaScript -->
+<!--<script src="../dist/js/sb-admin-2.js"></script>-->
+
+<!-- shell templates -->
+<script type="text/x-handlebars-template" id="shell-content">
+    <div role="tabpanel" class="tab-pane fade" id="{{id}}" aria-labelledby="{{id}}-tab">
+        <div class="tab-content"></div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="shell-tab">
+    <li role="presentation" class="">
+        <a href="#{{id}}" data-value="{{value}}" id="{{id}}-tab" role="tab" data-toggle="tab" aria-controls="{{id}}"
+           aria-expanded="true">
+            {{title}}
+            <span class="shell-tab-remove" data-value="{{id}}"><i class="iconfont icon-close"></i></span>
+        </a>
+    </li>
+</script>
+
+<script type="text/x-handlebars-template" id="shell-breadcrumb">
+    <ul class="breadcrumb">
+        {{#each this}} {{#if @last}}
+        <li class="active">{{title}}</li>
+        {{else}}
+        <li><a href="javascript:void(0)" id="{{id}}">{{title}}</a></li>
+        {{/if}} {{/each}}
+    </ul>
+</script>
+
+<script type="text/x-handlebars-template" id="es-form">
+    <div class="well bs-component">
+        <div class="row">
+            <div id="{{id}}"></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="es-input">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">{{label}}</span>
+            <input class="form-control {{cls}}" id="{{id}}" name="{{key}}" type="text"/>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="es-date">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">{{label}}</span>
+            <input class="form-control {{cls}}" id="{{id}}" name="{{key}}" type="text" readonly/>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="es-selector">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">{{label}}</span>
+            <input class="form-control {{cls}}" placeholder="{{placeholder}}" name="{{key}}" id="{{id}}"/>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="es-select2">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">{{label}}</span>
+            <select id="{{id}}" name="{{key}}" style="width: 100%;">
+                {{#each data}}
+                <option value="{{v}}">{{d}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="es-qty">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon minus">-</span>
+            <input class="form-control qty {{cls}}" placeholder="{{placeholder}}" name="{{key}}" id="{{id}}"/>
+            <span class="input-group-addon plus">+</span>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="es-geo">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">{{label}}</span>
+            <input class="form-control {{cls}}" id="{{id}}" name="{{key}}" type="text" data-value="" readonly/>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="es-geo-echo">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">{{label}}</span>
+            <input class="form-control {{cls}}" id="{{id}}" name="{{key}}" type="text" data-value="" readonly/>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="geo-tab-template">
+    <ul id="tab" class="nav nav-tabs">
+        {{#each this}}
+        <li class="tab-item {{#if @first}}active{{/if}}"><a href="#{{id}}" data-toggle="tab">{{name}}</a></li>
+        {{/each}}
+    </ul>
+    <div id="tabContent" class="tab-content">
+        {{#each this}}
+        <div class="tab-pane fade {{#if @first}}in active{{/if}}" id="{{id}}"></div>
+        {{/each}}
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="msg-alert">
+    <span class="help-block">{{msg}}</span>
+</script>
+
+<script type="text/x-handlebars-template" id="geo-items">
+    {{#each this}}
+    <div class="geo-item" data-value="{{id}}">{{name}}</div>
+    {{/each}}
+    <div class="clear"></div>
+</script>
+
+<script type="text/x-handlebars-template" id="geo-ordered">
+    {{#each this}}
+    <div class="order-label">{{orderLabel}}</div>
+    <div class="order-html">{{{orderHTML}}}</div>
+    <div class="clear"></div>
+    {{/each}}
+</script>
+
+<script type="text/x-handlebars-template" id="page-alert-template">
+    <div class="alert alert-warning fade in">
+        <a href="#" class="close" data-dismiss="alert">
+            &times;
+        </a>
+        <strong>警告！</strong>您的网络连接有问题。
+    </div>
+</script>
+
+<div class="modal fade" id="es-modal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="es-modal-label"></h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <div class="popup-error-msg"></div>
+                <button type="button" class="btn btn-default negative"></button>
+                <button type="button" class="btn btn-primary positive"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="es-geo-modal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="es-geo-modal-label"></h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <div class="popup-error-msg"></div>
+                <button type="button" class="btn btn-default negative"></button>
+                <button type="button" class="btn btn-primary positive"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

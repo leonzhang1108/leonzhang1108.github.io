@@ -1,0 +1,135 @@
+@media screen and (max-width: 520px) {
+    html, body{
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    #matrix {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+        max-width: 100%;
+        z-index: -1;
+        position: absolute;
+    }
+    #enigma-title {
+        text-align: center;
+    }
+
+    #enigma-content {
+        margin: 0 15px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .enigma-rotor {
+        width: 100%;
+        text-align: center;
+    }
+
+    #rotor-content {
+        margin: 10px 0;
+    }
+
+    .col-xs-6 {
+        margin: 5px 0;
+    }
+    .input-group {
+        width: 50%;
+        float: left;
+        padding: 5px;
+    }
+    #enigma-content .enigma-textarea {
+        margin: 0 5px;
+        height: 21%;
+    }
+
+    #enigma-content textarea.form-control{
+        height: 100px;
+    }
+
+    #radio-form {
+        margin: 20px 0;
+        padding: 5px;
+        width: 100%;
+    }
+    .radio-form-item {
+        width: 50%;
+    }
+
+
+}
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+}
+#matrix {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    max-width: 100%;
+    z-index: -1;
+    position: absolute;
+}
+#enigma-title {
+    text-align: center;
+}
+
+#enigma-content {
+    margin: 0 15px;
+}
+
+textarea {
+    resize: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.enigma-rotor {
+    width: 100%;
+    text-align: center;
+}
+
+#rotor-content {
+    margin: 10px 0;
+}
+
+.col-xs-6 {
+    margin: 5px 0;
+}
+.input-group {
+    width: 50%;
+    float: left;
+    padding: 5px;
+}
+#enigma-content .enigma-textarea {
+    margin: 0 5px;
+    height: 21%;
+}
+
+#enigma-content textarea.form-control{
+    height: 100px;
+}
+
+#radio-form {
+    margin: 20px 0;
+    padding: 5px;
+    width: 100%;
+}
+.radio-form-item {
+    width: 50%;
+}
+

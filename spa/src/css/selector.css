@@ -1,0 +1,19 @@
+.tt-menu {
+    background :#eee;
+    width: 100%;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+}
+.tt-menu .tt-suggestion {
+    padding: 2px 5px;
+    border-top: 1px solid #ccc;
+    margin-top: -1px;
+}
+.tt-menu .tt-suggestion:hover {
+    cursor: pointer;
+    background: #ddd;
+}
+.tt-highlight {
+    color: #078ef1;
+}
