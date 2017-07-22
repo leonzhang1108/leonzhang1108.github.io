@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Rxjs应用 | Leonzhang&#39;s blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="All Hail JLA" />
+  
+
+  <meta name="description" content="多次点击 记录点击次数const clickStream = Observable.fromEvent(document, &apos;click&apos;)clickStream  .buffer(clickStream.debounceTime(250))  .map(list =&amp;gt; list.length)  .subscribe(console.log) 鼠标拖动 文字尾巴效果 Reactimport">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rxjs应用">
+<meta property="og:url" content="http://leonzh.cc/2017/07/22/rxjs-in-use/index.html">
+<meta property="og:site_name" content="Leonzhang&#39;s blog">
+<meta property="og:description" content="多次点击 记录点击次数const clickStream = Observable.fromEvent(document, &apos;click&apos;)clickStream  .buffer(clickStream.debounceTime(250))  .map(list =&amp;gt; list.length)  .subscribe(console.log) 鼠标拖动 文字尾巴效果 Reactimport">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-22T13:56:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rxjs应用">
+<meta name="twitter:description" content="多次点击 记录点击次数const clickStream = Observable.fromEvent(document, &apos;click&apos;)clickStream  .buffer(clickStream.debounceTime(250))  .map(list =&amp;gt; list.length)  .subscribe(console.log) 鼠标拖动 文字尾巴效果 Reactimport">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-rxjs-in-use" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Rxjs应用</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.07.22</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Leon Zhang</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://leonzh.cc/2017/07/22/rxjs-in-use/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="多次点击-记录点击次数"><a href="#多次点击-记录点击次数" class="headerlink" title="多次点击 记录点击次数"></a>多次点击 记录点击次数</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> clickStream = Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>)</div><div class="line">clickStream</div><div class="line">  .buffer(clickStream.debounceTime(<span class="number">250</span>))</div><div class="line">  .map(<span class="function"><span class="params">list</span> =&gt;</span> list.length)</div><div class="line">  .subscribe(<span class="built_in">console</span>.log)</div></pre></td></tr></table></figure>
+<h2 id="鼠标拖动-文字尾巴效果-React"><a href="#鼠标拖动-文字尾巴效果-React" class="headerlink" title="鼠标拖动 文字尾巴效果 React"></a>鼠标拖动 文字尾巴效果 React</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> Rx, &#123;</div><div class="line">  Observable,</div><div class="line">  debounceTime</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'rxjs'</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    Observable.from(<span class="string">'leon is awesome'</span>)</div><div class="line">      .flatMap(<span class="function">(<span class="params">value, index</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">const</span> element = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>)</div><div class="line">        element.innerHTML = value</div><div class="line">        element.style.position = <span class="string">'absolute'</span></div><div class="line">        <span class="keyword">this</span>.refs.container.appendChild(element)</div><div class="line">        <span class="keyword">return</span> Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'mousemove'</span>)</div><div class="line">          .delay(index * <span class="number">100</span>)</div><div class="line">          .map(<span class="function"><span class="params">pos</span> =&gt;</span> &#123;</div><div class="line">            <span class="keyword">return</span> &#123; pos, value, index, element &#125;</div><div class="line">          &#125;)</div><div class="line">      &#125;)</div><div class="line">      .subscribe(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</div><div class="line">        data.element.style.top = data.pos.offsetY + <span class="string">'px'</span></div><div class="line">        data.element.style.left</div><div class="line">          = data.pos.offsetX + data.index * <span class="number">10</span> + <span class="number">15</span> + <span class="string">'px'</span></div><div class="line">      &#125;)</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;div ref='container'&gt;&lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="自动补齐input框-React"><a href="#自动补齐input框-React" class="headerlink" title="自动补齐input框(React)"></a>自动补齐input框(React)</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> Rx, &#123;</div><div class="line">  Observable</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'rxjs'</span></div><div class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">searchWikipedia</span>(<span class="params">term</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> $.ajax(&#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">'http://en.wikipedia.org/w/api.php'</span>,</div><div class="line">        <span class="attr">dataType</span>: <span class="string">'jsonp'</span>,</div><div class="line">        <span class="attr">data</span>: &#123;</div><div class="line">          <span class="attr">action</span>: <span class="string">'opensearch'</span>,</div><div class="line">          <span class="attr">format</span>: <span class="string">'json'</span>,</div><div class="line">          <span class="attr">search</span>: term</div><div class="line">        &#125;</div><div class="line">      &#125;).promise()</div><div class="line">    &#125;</div><div class="line">    Observable.fromEvent(<span class="keyword">this</span>.refs.input, <span class="string">'input'</span>)</div><div class="line">      .debounceTime(<span class="number">300</span>) <span class="comment">// 防抖300毫秒</span></div><div class="line">      .map(<span class="function"><span class="params">e</span> =&gt;</span> e.target.value) </div><div class="line">      .filter(<span class="function"><span class="params">v</span> =&gt;</span> v != <span class="string">''</span>)</div><div class="line">      .distinctUntilChanged()  <span class="comment">// 若值未改变 不往下走</span></div><div class="line">      .do(<span class="built_in">console</span>.log)</div><div class="line">      .switchMap(searchWikipedia) <span class="comment">//请求，若多个请求，取消上一个请求</span></div><div class="line">      .subscribe(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</div><div class="line">        $(<span class="keyword">this</span>.refs.result)</div><div class="line">          .empty()</div><div class="line">          .append(</div><div class="line">              $.map(data[<span class="number">1</span>], (v, i)=&gt; &#123;</div><div class="line">              <span class="keyword">const</span> link = $(<span class="string">'&lt;a&gt;'</span>)</div><div class="line">                    .attr(<span class="string">'href'</span>, data[<span class="number">3</span>][i])</div><div class="line">                    .text(v)</div><div class="line">              <span class="keyword">return</span> $(<span class="string">'&lt;li&gt;'</span>).append(link)</div><div class="line">            &#125;)</div><div class="line">          )</div><div class="line">      &#125;)</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;input ref='input' /&gt;</div><div class="line">        &lt;div ref='result'&gt;&lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="simplebinding-简单值绑定-React"><a href="#simplebinding-简单值绑定-React" class="headerlink" title="simplebinding 简单值绑定(React)"></a>simplebinding 简单值绑定(React)</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> Rx, &#123;</div><div class="line">  Observable</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'rxjs'</span></div><div class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="keyword">const</span> fnSubject = <span class="keyword">new</span> Rx.BehaviorSubject(<span class="string">''</span>)</div><div class="line">    <span class="keyword">const</span> lnSubject = <span class="keyword">new</span> Rx.BehaviorSubject(<span class="string">''</span>)</div><div class="line">    <span class="keyword">const</span> fullNameSubject = fnSubject.combineLatest(lnSubject,      (first, last) =&gt; &#123;</div><div class="line">        <span class="keyword">return</span> first + <span class="string">' '</span> + last;</div><div class="line">    &#125;)</div><div class="line">    fnSubject.subscribe(</div><div class="line">        <span class="function"><span class="params">text</span> =&gt;</span> <span class="keyword">this</span>.refs.firstname.value = text)</div><div class="line">    lnSubject.subscribe(</div><div class="line">        <span class="function"><span class="params">text</span> =&gt;</span> <span class="keyword">this</span>.refs.lastname.value = text)</div><div class="line">    fullNameSubject.subscribe(</div><div class="line">        <span class="function">(<span class="params">text</span>) =&gt;</span> $(<span class="keyword">this</span>.refs.fullname).empty().append(text))</div><div class="line">    Observable.fromEvent(<span class="keyword">this</span>.refs.firstname, <span class="string">'input'</span>)</div><div class="line">      .subscribe(<span class="function"><span class="params">e</span> =&gt;</span> fnSubject.next(e.target.value))</div><div class="line">    Observable.fromEvent(<span class="keyword">this</span>.refs.lastname, <span class="string">'input'</span>)</div><div class="line">      .subscribe(<span class="function"><span class="params">e</span> =&gt;</span> lnSubject.next(e.target.value))</div><div class="line"></div><div class="line">      <span class="comment">//const firstsub = new Rx.BehaviorSubject('')</span></div><div class="line">    <span class="comment">//const lastsub = new Rx.BehaviorSubject('')</span></div><div class="line">    <span class="comment">//Observable.fromEvent(this.refs.firstname, 'keyup')</span></div><div class="line">    <span class="comment">//  .map(e =&gt; e.target.value)</span></div><div class="line">    <span class="comment">//  .subscribe((v) =&gt; firstsub.next(v))</span></div><div class="line">    <span class="comment">//Observable.fromEvent(this.refs.lastname, 'keyup')</span></div><div class="line">    <span class="comment">//  .map(e =&gt; e.target.value)</span></div><div class="line">    <span class="comment">//  .subscribe((v) =&gt; lastsub.next(v))</span></div><div class="line">    <span class="comment">//const fullsub = firstsub.combineLatest(lastsub,</span></div><div class="line">      <span class="comment">//(first, last) =&gt; &#123;</span></div><div class="line">    <span class="comment">//  return `$&#123;first&#125; $&#123;last&#125;`</span></div><div class="line">    <span class="comment">//&#125;)</span></div><div class="line">    <span class="comment">//fullsub.subscribe((v) =&gt; &#123;</span></div><div class="line">    <span class="comment">//  $(this.refs.fullname).empty().append(v)</span></div><div class="line">    <span class="comment">//&#125;)</span></div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;input ref='firstname' /&gt;</div><div class="line">        &lt;input ref='lastname' /&gt;</div><div class="line">        &lt;div ref='fullname'&gt;&lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="逐字打印文字"><a href="#逐字打印文字" class="headerlink" title="逐字打印文字"></a>逐字打印文字</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Rx.Observable.from(<span class="string">'leon'</span>)</div><div class="line">   .zip(Rx.Observable.interval(<span class="number">500</span>), x=&gt;x.toUpperCase())</div><div class="line">   .subscribe(<span class="built_in">console</span>.log)</div></pre></td></tr></table></figure>
+<h3 id="记录btn点击次数和两次相邻点击时间差-React"><a href="#记录btn点击次数和两次相邻点击时间差-React" class="headerlink" title="记录btn点击次数和两次相邻点击时间差(React)"></a>记录btn点击次数和两次相邻点击时间差(React)</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> Rx, &#123;</div><div class="line">  Observable</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'rxjs'</span></div><div class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span></div><div class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="keyword">const</span> ob1 = Observable</div><div class="line">      .fromEvent(<span class="keyword">this</span>.refs.btn, <span class="string">'click'</span>)</div><div class="line">      .scan(<span class="function"><span class="params">v</span> =&gt;</span> v + <span class="number">1</span>, <span class="number">0</span>)</div><div class="line">    <span class="keyword">const</span> ob2 = Observable</div><div class="line">      .create(<span class="function"><span class="params">observer</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> prevTime = moment.now()</div><div class="line">        $(<span class="keyword">this</span>.refs.btn).on(<span class="string">'click'</span>, () =&gt; &#123;</div><div class="line">          <span class="keyword">const</span> currTime = moment.now() </div><div class="line">          observer.next(currTime - prevTime)</div><div class="line">          prevTime = currTime</div><div class="line">        &#125;)</div><div class="line">      &#125;)</div><div class="line">    <span class="keyword">const</span> source = ob1.withLatestFrom(ob2)</div><div class="line">    source.subscribe(<span class="built_in">console</span>.log)</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;button ref='btn'&gt;test&lt;/button&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="拖拽（React）"><a href="#拖拽（React）" class="headerlink" title="拖拽（React）"></a>拖拽（React）</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> Rx, &#123;</div><div class="line">  Observable</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'rxjs'</span></div><div class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="keyword">const</span> mousedown = Observable.fromEvent(<span class="keyword">this</span>.refs.movingDiv, <span class="string">'mousedown'</span>)</div><div class="line">    <span class="keyword">const</span> mouseover = Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'mousemove'</span>)</div><div class="line">    <span class="keyword">const</span> mouseup = Observable.fromEvent(<span class="keyword">this</span>.refs.movingDiv, <span class="string">'mouseup'</span>)</div><div class="line">    mousedown.flatMap(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">var</span> startX = e.offsetX, startY = e.offsetY</div><div class="line">      <span class="keyword">return</span> mouseover</div><div class="line">        .map(<span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</div><div class="line">          <span class="keyword">const</span> left = event.clientX - startX</div><div class="line">          <span class="keyword">const</span> top = event.clientY - startY</div><div class="line">          <span class="built_in">console</span>.log(left, top)</div><div class="line">          <span class="keyword">return</span> &#123;</div><div class="line">            left, top</div><div class="line">          &#125;</div><div class="line">        &#125;)</div><div class="line">        .takeUntil(mouseup)</div><div class="line">    &#125;).subscribe(<span class="function">(<span class="params">&#123; left, top &#125;</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">this</span>.refs.movingDiv.style.top = top + <span class="string">'px'</span></div><div class="line">      <span class="keyword">this</span>.refs.movingDiv.style.left = left + <span class="string">'px'</span></div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;div</div><div class="line">          ref="movingDiv"</div><div class="line">          style=&#123;&#123;</div><div class="line">            position: 'absolute',</div><div class="line">            width: '100px',</div><div class="line">            height: '100px',</div><div class="line">            backgroundColor: 'red'</div><div class="line">          &#125;&#125;&gt;&lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="计数-点击后暂停"><a href="#计数-点击后暂停" class="headerlink" title="计数 点击后暂停"></a>计数 点击后暂停</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> seconds = Rx.Observable.interval(<span class="number">1000</span>)</div><div class="line"><span class="keyword">const</span> clicks = Rx.Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'click'</span>)</div><div class="line"><span class="keyword">const</span> secondsBeforeClick = seconds.takeUntil(clicks)</div><div class="line"><span class="keyword">const</span> result = secondsBeforeClick.do(<span class="built_in">console</span>.log).count()</div><div class="line">result.subscribe(<span class="built_in">console</span>.log)</div></pre></td></tr></table></figure>
+<h3 id="konamicode"><a href="#konamicode" class="headerlink" title="konamicode"></a>konamicode</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 存数组 对比数组</span></div><div class="line"><span class="keyword">const</span> codes = [</div><div class="line">  <span class="number">38</span>, <span class="comment">// up</span></div><div class="line">  <span class="number">38</span>, <span class="comment">// up</span></div><div class="line">  <span class="number">40</span>, <span class="comment">// down</span></div><div class="line">  <span class="number">40</span>, <span class="comment">// down</span></div><div class="line">  <span class="number">37</span>, <span class="comment">// left</span></div><div class="line">  <span class="number">39</span>, <span class="comment">// right</span></div><div class="line">  <span class="number">37</span>, <span class="comment">// left</span></div><div class="line">  <span class="number">39</span>, <span class="comment">// right</span></div><div class="line">  <span class="number">66</span>, <span class="comment">// b</span></div><div class="line">  <span class="number">65</span>  <span class="comment">// a</span></div><div class="line">];</div><div class="line">Observable.fromEvent(<span class="built_in">document</span>, <span class="string">'keyup'</span>)</div><div class="line">  .map(<span class="function"><span class="params">e</span> =&gt;</span> e.keyCode)</div><div class="line">  .scan(<span class="function">(<span class="params">total, curr</span>) =&gt;</span> &#123;</div><div class="line">    total.push(curr)</div><div class="line">    <span class="keyword">return</span> total.slice(<span class="number">-10</span>)</div><div class="line">  &#125;, [])</div><div class="line">  .filter(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</div><div class="line">      <span class="built_in">console</span>.log(v)</div><div class="line">    <span class="keyword">return</span> v.toString() == codes.toString()</div><div class="line">  &#125;)</div><div class="line">  .subscribe(<span class="function"><span class="params">()</span> =&gt;</span> alert(<span class="string">'fuck'</span>))</div></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/07/22/rxjs/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'leonzhang1108';
+    
+    var disqus_url = 'http://leonzh.cc/2017/07/22/rxjs-in-use/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//leonzhang1108.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
