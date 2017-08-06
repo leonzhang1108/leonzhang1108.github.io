@@ -1,1 +1,0 @@
-webpackJsonp([5,28],{141:function(o,t,e){var p,s;s=e(142),o.exports=p||{},o.exports.__esModule&&(o.exports=o.exports["default"]),s&&(("function"==typeof o.exports?o.exports.options||(o.exports.options={}):o.exports).template=s)},142:function(o,t){o.exports="<h1>this is index page</h1>"}});
