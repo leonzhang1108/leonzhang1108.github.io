@@ -80,7 +80,7 @@
         { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
         { src: 'js/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
         { src: 'js/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-        { src: 'js/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+        { src: 'js/highlight.js', async: false, callback: function () { hljs.initHighlightingOnLoad(); } },
         { src: 'js/zoom.js', async: true },
         { src: 'js/notes.js', async: true }
       ]
