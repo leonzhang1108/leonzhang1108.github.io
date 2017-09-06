@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Leonzhang&#39;s blog">
 <meta property="og:description" content="AMD &amp;amp; CMD// CMD// 延迟执行// 代码运行时不知道依赖，需要遍历所有的require关键字，找出后面的依赖。具体做法是将function toString后，用正则匹配出require关键字后面的依赖。牺牲性能define(function(require, exports, module) &amp;#123;     var a = require(&apos;./a&apos;)     a.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-06T10:13:03.000Z">
+<meta property="og:updated_time" content="2017-09-06T10:15:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试升级">
 <meta name="twitter:description" content="AMD &amp;amp; CMD// CMD// 延迟执行// 代码运行时不知道依赖，需要遍历所有的require关键字，找出后面的依赖。具体做法是将function toString后，用正则匹配出require关键字后面的依赖。牺牲性能define(function(require, exports, module) &amp;#123;     var a = require(&apos;./a&apos;)     a.">
@@ -255,7 +255,7 @@
 </tbody>
 </table>
 <h3 id="react-virtual-dom"><a href="#react-virtual-dom" class="headerlink" title="react virtual dom"></a>react virtual dom</h3><blockquote>
-<p>在Web开发中，我们总需要将变化的<br>数据实时反应到UI上，这时就需要对DOM进行操作。而复杂或频繁的DOM操作通常是性能瓶颈产生的原因（如何 进行高性能的复杂DOM操作通常是衡量一个前端开发人员技能的重要指标）。React为此引入了虚拟DOM（Virtual DOM）的机制：在浏览器端用Javascript实现了一套DOM API。基于React进行开发时所有的DOM构造都是通过虚拟DOM进行，每当数据变化时，React都会重新构建整个DOM树，然后React将当前 整个DOM树和上一次的DOM树进行对比，得到DOM结构的区别，然后仅仅将需要变化的部分进行实际的浏览器DOM更新。而且React能够批处理虚拟 DOM的刷新，在一个事件循环（Event Loop）内的两次数据变化会被合并，例如你连续的先将节点内容从A变成B，然后又从B变成A，React会认为UI不发生任何变化，而如果通过手动控 制，这种逻辑通常是极其复杂的。尽管每一次都需要构造完整的虚拟DOM树，但是因为虚拟DOM是内存数据，性能是极高的，而对实际DOM进行操作的仅仅是 Diff部分，因而能达到提高性能的目的。这样，在保证性能的同时，开发者将不再需要关注某个数据的变化如何更新到一个或多个具体的DOM元素，而只需要 关心在任意一个数据状态下，整个界面是如何Render的。</p>
+<p>在Web开发中，我们总需要将变化的数据实时反应到UI上，这时就需要对DOM进行操作。而复杂或频繁的DOM操作通常是性能瓶颈产生的原因（如何 进行高性能的复杂DOM操作通常是衡量一个前端开发人员技能的重要指标）。React为此引入了虚拟DOM（Virtual DOM）的机制：在浏览器端用Javascript实现了一套DOM API。基于React进行开发时所有的DOM构造都是通过虚拟DOM进行，每当数据变化时，React都会重新构建整个DOM树，然后React将当前 整个DOM树和上一次的DOM树进行对比，得到DOM结构的区别，然后仅仅将需要变化的部分进行实际的浏览器DOM更新。而且React能够批处理虚拟 DOM的刷新，在一个事件循环（Event Loop）内的两次数据变化会被合并，例如你连续的先将节点内容从A变成B，然后又从B变成A，React会认为UI不发生任何变化，而如果通过手动控 制，这种逻辑通常是极其复杂的。尽管每一次都需要构造完整的虚拟DOM树，但是因为虚拟DOM是内存数据，性能是极高的，而对实际DOM进行操作的仅仅是 Diff部分，因而能达到提高性能的目的。这样，在保证性能的同时，开发者将不再需要关注某个数据的变化如何更新到一个或多个具体的DOM元素，而只需要 关心在任意一个数据状态下，整个界面是如何Render的。</p>
 </blockquote>
 <h3 id="react-v-dom-渲染流程"><a href="#react-v-dom-渲染流程" class="headerlink" title="react v-dom 渲染流程"></a>react v-dom 渲染流程</h3><ul>
 <li>Javascript DOM模型树（VTree），类似文档节点树（DOM）</li>
