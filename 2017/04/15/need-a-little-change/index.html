@@ -15,18 +15,18 @@
     <meta name="keywords" content="others," />
   
 
-  <meta name="description" content="事件委托：就是不遍历绑事件，只绑在父元素，通过事件冒泡去实现子元素的事件触发 事件冒泡：由内而外 事件捕获：由外及内 清除浮动：伪类after+zoom box-sizing：content-box, padding-box, border-box Doctype：告知浏览器的解析器用什么文档标准解析这个文档。HTML5不基于 SGML，因此不需要对DTD进行引用 HTML5新特性：canvas,">
+  <meta name="description" content="事件委托：就是不遍历绑事件，只绑在父元素，通过事件冒泡去实现子元素的事件触发 事件冒泡：由内而外  addEventListener第三个参数false  stopPropagation阻止冒泡 事件捕获：由外及内  addEventListener第三个参数true 清除浮动：1. 伪类after+zoom(ie) 2. 结尾处加空div标签 clear:both 3. 父级div定义 over">
 <meta name="keywords" content="others">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试学习">
 <meta property="og:url" content="http://leonzh.cc/2017/04/15/need-a-little-change/index.html">
 <meta property="og:site_name" content="Leonzhang&#39;s blog">
-<meta property="og:description" content="事件委托：就是不遍历绑事件，只绑在父元素，通过事件冒泡去实现子元素的事件触发 事件冒泡：由内而外 事件捕获：由外及内 清除浮动：伪类after+zoom box-sizing：content-box, padding-box, border-box Doctype：告知浏览器的解析器用什么文档标准解析这个文档。HTML5不基于 SGML，因此不需要对DTD进行引用 HTML5新特性：canvas,">
+<meta property="og:description" content="事件委托：就是不遍历绑事件，只绑在父元素，通过事件冒泡去实现子元素的事件触发 事件冒泡：由内而外  addEventListener第三个参数false  stopPropagation阻止冒泡 事件捕获：由外及内  addEventListener第三个参数true 清除浮动：1. 伪类after+zoom(ie) 2. 结尾处加空div标签 clear:both 3. 父级div定义 over">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-05T12:18:44.000Z">
+<meta property="og:updated_time" content="2017-09-07T03:19:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试学习">
-<meta name="twitter:description" content="事件委托：就是不遍历绑事件，只绑在父元素，通过事件冒泡去实现子元素的事件触发 事件冒泡：由内而外 事件捕获：由外及内 清除浮动：伪类after+zoom box-sizing：content-box, padding-box, border-box Doctype：告知浏览器的解析器用什么文档标准解析这个文档。HTML5不基于 SGML，因此不需要对DTD进行引用 HTML5新特性：canvas,">
+<meta name="twitter:description" content="事件委托：就是不遍历绑事件，只绑在父元素，通过事件冒泡去实现子元素的事件触发 事件冒泡：由内而外  addEventListener第三个参数false  stopPropagation阻止冒泡 事件捕获：由外及内  addEventListener第三个参数true 清除浮动：1. 伪类after+zoom(ie) 2. 结尾处加空div标签 clear:both 3. 父级div定义 over">
 
   
 
@@ -228,10 +228,10 @@
 
   <div class="article-content">
     
-      <p><strong>事件委托：</strong>就是不遍历绑事件，只绑在父元素，通过事件冒泡去实现子元素的事件触发</p>
-<p><strong>事件冒泡：</strong>由内而外</p>
-<p><strong>事件捕获：</strong>由外及内</p>
-<p><strong>清除浮动：</strong>伪类after+zoom</p>
+      <p><strong>事件委托：</strong>就是不遍历绑事件，只绑在父元素，通过事件<strong>冒泡</strong>去实现子元素的事件触发</p>
+<p><strong>事件冒泡：</strong>由内而外  addEventListener第三个参数false  stopPropagation阻止冒泡</p>
+<p><strong>事件捕获：</strong>由外及内  addEventListener第三个参数true</p>
+<p><strong>清除浮动：</strong>1. 伪类after+zoom(ie) 2. 结尾处加空div标签 clear:both 3. 父级div定义 overflow:hidden /auto</p>
 <p><strong>box-sizing：</strong>content-box, padding-box, border-box</p>
 <p><strong>Doctype：</strong>告知浏览器的解析器用什么文档标准解析这个文档。HTML5不基于 SGML，因此不需要对DTD进行引用</p>
 <p><strong>HTML5新特性：</strong>canvas, audio, video, localStorage, sessionStorage, websocket, webworker, Geolaotion,表单控件, 语义化元素</p>
