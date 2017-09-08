@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Leonzhang&#39;s blog">
 <meta property="og:description" content="AMD &amp;amp; CMD// CMD// 延迟执行// 代码运行时不知道依赖，需要遍历所有的require关键字，找出后面的依赖。具体做法是将function toString后，用正则匹配出require关键字后面的依赖。牺牲性能define(function(require, exports, module) &amp;#123;     var a = require(&apos;./a&apos;)     a.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-07T03:32:51.000Z">
+<meta property="og:updated_time" content="2017-09-08T12:34:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试升级">
 <meta name="twitter:description" content="AMD &amp;amp; CMD// CMD// 延迟执行// 代码运行时不知道依赖，需要遍历所有的require关键字，找出后面的依赖。具体做法是将function toString后，用正则匹配出require关键字后面的依赖。牺牲性能define(function(require, exports, module) &amp;#123;     var a = require(&apos;./a&apos;)     a.">
@@ -334,7 +334,21 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="css中box-amp-flex"><a href="#css中box-amp-flex" class="headerlink" title="css中box &amp; flex"></a>css中box &amp; flex</h3><h3 id="react-native-渲染原理"><a href="#react-native-渲染原理" class="headerlink" title="react native 渲染原理"></a>react native 渲染原理</h3><h3 id="mvc-mvvm-区别"><a href="#mvc-mvvm-区别" class="headerlink" title="mvc mvvm 区别"></a>mvc mvvm 区别</h3><ul>
+<h3 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">returnFun</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> add(a + b)</div><div class="line">    &#125;</div><div class="line">    returnFun.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> a</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> returnFun</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>).toString()) <span class="comment">//6</span></div></pre></td></tr></table></figure>
+<h3 id="三次握手-四次撒手"><a href="#三次握手-四次撒手" class="headerlink" title="三次握手 四次撒手"></a>三次握手 四次撒手</h3><blockquote>
+<p>三次握手</p>
+<ul>
+<li>客户端发送SYN=1，且发送随机seq</li>
+<li>服务器受到SYN=1，返回一个ACK=1（表示确认），并同返回一个请求连接SYN=1，然后返回一个ack=seq+1（客户端随机码应答），且自己也返回一个seq（随机码）</li>
+<li>客户端收到服务器的ack后验证，向服务器确认包发送ack=seq+1（服务器随机码应答）</li>
+<li>服务器确认ack后建立连接，完成三次握手<br>四次撒手</li>
+<li></li>
+</ul>
+</blockquote>
+<h3 id="react-native-渲染原理"><a href="#react-native-渲染原理" class="headerlink" title="react native 渲染原理"></a>react native 渲染原理</h3><blockquote>
+<p>Write once, Run anywhere!<br>需要 UIKit 等框架，调用OC代码<br>以 JavaScript 的形式告诉 Objective-C 该执行什么代码</p>
+</blockquote>
+<h3 id="mvc-mvvm-区别"><a href="#mvc-mvvm-区别" class="headerlink" title="mvc mvvm 区别"></a>mvc mvvm 区别</h3><ul>
 <li>mvc: 界面上的每个变化都是一个事件，我只需要针对每个事件写一堆代码，来把用户的输入转换成model里的对象就行了，这堆代码可以叫controller</li>
 <li>mvvn: 我给view里面的各种控件也定义一个对应的数据对象，这样，只要修改这个数据对象，view里面显示的内容就自动跟着刷新，而在view 里做了任何操作，这个数据对象也跟着自动更新，这样多美</li>
 </ul>
@@ -380,7 +394,7 @@
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">
