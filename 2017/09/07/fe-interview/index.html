@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Leonzhang&#39;s blog">
 <meta property="og:description" content="AMD &amp;amp; CMD// CMD// 延迟执行// 代码运行时不知道依赖，需要遍历所有的require关键字，找出后面的依赖。具体做法是将function toString后，用正则匹配出require关键字后面的依赖。牺牲性能define(function(require, exports, module) &amp;#123;     var a = require(&apos;./a&apos;)     a.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-09T09:04:52.000Z">
+<meta property="og:updated_time" content="2017-09-12T06:43:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试升级">
 <meta name="twitter:description" content="AMD &amp;amp; CMD// CMD// 延迟执行// 代码运行时不知道依赖，需要遍历所有的require关键字，找出后面的依赖。具体做法是将function toString后，用正则匹配出require关键字后面的依赖。牺牲性能define(function(require, exports, module) &amp;#123;     var a = require(&apos;./a&apos;)     a.">
@@ -263,6 +263,30 @@
 <li>两个DOM模型树的差异算法（diff(VTree, VTree) -&gt; PatchObject）</li>
 <li>根据差异操作节点方法（patch(DOMNode, PatchObject) -&gt; DOMNode）</li>
 </ul>
+<h3 id="react-生命周期"><a href="#react-生命周期" class="headerlink" title="react 生命周期"></a>react 生命周期</h3><blockquote>
+<p><strong>componentWillMount()</strong>: render之前，setState不会触发重新渲染，server render时唯一调用的钩子，通常用constructor替代<br><strong>render(</strong>): 渲染<br><strong>comoinentDidMount()</strong>: render之后，可进行dom操作，异步加载，setState后重新渲染<br><strong>componentWillReceiveProps(nextProps)</strong>: componentDidMount之后，在已经挂在的组件接收到新props时触发</p>
+<ul>
+<li>比较this.props和nextProps，改变this.state</li>
+<li>this.setState()方法不会触发componentWillReceiveProps()</li>
+</ul>
+<p><strong>shouldComponentUpdate(nextProps, nextState)</strong>: 在接收到新props或state时，或者说在componentWillReceiveProps(nextProps)后触发</p>
+<ul>
+<li>return true 重新渲染 return false 不重新渲染且之后生命周期不触发</li>
+<li>forceUpdate()和首次渲染时不触发</li>
+</ul>
+<p><strong>componentWillUpdate(nextProps, nextState)</strong>: shouldComponentUpdate之后触发，render之前调用，初始化时不调用</p>
+<ul>
+<li><strong>不能用this.setState()</strong></li>
+</ul>
+<p><strong>componentDidUpdate(prevProps, prevState)</strong>: componentWillUpdate(nextProps, nextState)或更新之后调用，初始化不调用</p>
+<ul>
+<li>可操作dom，可以触发网络请求</li>
+</ul>
+<p><strong>componentWillUnmount()</strong>: 组件销毁或卸载之前触发</p>
+<ul>
+<li>清理timers, intervals或者取消网络请求等</li>
+</ul>
+</blockquote>
 <h3 id="常见开发漏洞"><a href="#常见开发漏洞" class="headerlink" title="常见开发漏洞"></a>常见开发漏洞</h3><ul>
 <li>xss(cross site scripting): 攻击者向有XSS漏洞的网站中输入(传入)恶意的HTML代码，当其它用户浏览该网站时，这段HTML代码会自动执行，从而达到攻击的目的。如，盗取用户Cookie、破坏页面结构、重定向到其它网站等。</li>
 <li>sql注入: 用户可以提交一段数据库查询代码，根据程序返回的结果，获得某些他想得知的数据，这就是所谓的SQL Injection，即SQL注入。</li>
@@ -337,9 +361,11 @@
 <h3 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">returnFun</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> add(a + b)</div><div class="line">    &#125;</div><div class="line">    returnFun.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> a</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> returnFun</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>).toString()) <span class="comment">//6</span></div></pre></td></tr></table></figure>
 <h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> deepCopy = <span class="function"><span class="keyword">function</span> (<span class="params">sourceObj</span>) </span>&#123; </div><div class="line">    <span class="keyword">var</span> result = &#123;&#125;,</div><div class="line">        key = <span class="literal">null</span>,</div><div class="line">        <span class="comment">//当前属性</span></div><div class="line">        curSourceKey = <span class="literal">null</span>,</div><div class="line">        i = <span class="number">0</span>,</div><div class="line">        len = <span class="number">0</span>,</div><div class="line">        toString = <span class="built_in">Object</span>.prototype.toString;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (key <span class="keyword">in</span> sourceObj) &#123;</div><div class="line">        curSourceKey = sourceObj[key];</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> curSourceKey !== <span class="string">"object"</span>) &#123;</div><div class="line">            result[key] = curSourceKey;</div><div class="line">        &#125; </div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (toString.apply(curSourceKey) === <span class="string">"[object Object]"</span>) &#123;</div><div class="line">            result[key] = deepCopy(sourceObj[key]);</div><div class="line">        &#125; </div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (toString.apply(curSourceKey) === <span class="string">"[object Array]"</span>) &#123;</div><div class="line"></div><div class="line">            result[key] = [];</div><div class="line">            <span class="keyword">for</span> (len = curSourceKey.length; i &lt; len; i++) &#123;</div><div class="line">                result[key][i] = curSourceKey[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="keyword">return</span> result; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="instanceof-和-typeof"><a href="#instanceof-和-typeof" class="headerlink" title="instanceof 和 typeof"></a>instanceof 和 typeof</h3><blockquote>
-<p>用来判断变量<br><figure class="highlight plain"><figcaption><span>number,boolean,string,object,undefined,function, **不能判断数组**</span></figcaption><table><tr><td class="code"><pre><div class="line">&gt; eg: ```typeof(1)</div></pre></td></tr></table></figure></p>
-<p>判断变量是否存在：<figure class="highlight plain"><figcaption><span>a != 'undefined')```</span></figcaption><table><tr><td class="code"><pre><div class="line">&gt; ```instanceof```返回布尔值，只能用来判断**函数**, **对象**和**数组**，不能判断字符串数字等等，检测对象的原型链是否指向构造函数的prototype对象</div><div class="line">&gt; eg:  ```var a = &apos;123&apos;; console.log(a instanceof String); //false</div></pre></td></tr></table></figure></p>
-<p><strong>判断数组终极方案</strong><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&gt; <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">"[object Array]"</span></div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>用来判断变量</p>
+<ul>
+<li><code>typeof</code> 返回类型: number,boolean,string,object,undefined,function <strong>不能判断数组</strong><br>eg: <code>typeof(1)</code><br>判断变量是否存在：<code>if(typeof a != &#39;undefined&#39;)</code></li>
+<li><code>instanceof</code>返回布尔值，只能用来判断<strong>函数</strong>, <strong>对象</strong>和<strong>数组</strong>，不能判断字符串数字等等，检测对象的原型链是否指向构造函数的prototype对象<br>eg:  <code>var a = &#39;123&#39;; console.log(a instanceof String); //false</code><br><strong>判断数组终极方案</strong><br><code>Object.prototype.toString.call(obj) === &quot;[object Array]&quot;</code></li>
+</ul>
 </blockquote>
 <h3 id="三次握手-四次撒手"><a href="#三次握手-四次撒手" class="headerlink" title="三次握手 四次撒手"></a>三次握手 四次撒手</h3><blockquote>
 <p>三次握手</p>
@@ -400,7 +426,7 @@
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">
