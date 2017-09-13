@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Leonzhang&#39;s blog">
 <meta property="og:description" content="AMD &amp;amp; CMD// CMD// 延迟执行// 代码运行时不知道依赖，需要遍历所有的require关键字，找出后面的依赖。具体做法是将function toString后，用正则匹配出require关键字后面的依赖。牺牲性能define(function(require, exports, module) &amp;#123;     var a = require(&apos;./a&apos;)     a.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-12T06:43:24.000Z">
+<meta property="og:updated_time" content="2017-09-12T07:36:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试升级">
 <meta name="twitter:description" content="AMD &amp;amp; CMD// CMD// 延迟执行// 代码运行时不知道依赖，需要遍历所有的require关键字，找出后面的依赖。具体做法是将function toString后，用正则匹配出require关键字后面的依赖。牺牲性能define(function(require, exports, module) &amp;#123;     var a = require(&apos;./a&apos;)     a.">
@@ -287,6 +287,22 @@
 <li>清理timers, intervals或者取消网络请求等</li>
 </ul>
 </blockquote>
+<h3 id="setState-之后发生了什么"><a href="#setState-之后发生了什么" class="headerlink" title="setState 之后发生了什么"></a>setState 之后发生了什么</h3><blockquote>
+<p>React会将当前参数与组件当前状态进行合并，触发调和，根据新的状态构建React元素，计算出新的树与老树的节点差异，然后根据差异对界面进行最小化重渲染</p>
+</blockquote>
+<h3 id="什么情况下你会优先选择使用-Class-Component-而不是-Functional-Component"><a href="#什么情况下你会优先选择使用-Class-Component-而不是-Functional-Component" class="headerlink" title="什么情况下你会优先选择使用 Class Component 而不是 Functional Component"></a>什么情况下你会优先选择使用 Class Component 而不是 Functional Component</h3><blockquote>
+<p>包含<strong>内部状态</strong>或者使用到<strong>生命周期函数</strong></p>
+</blockquote>
+<h3 id="React-中-keys-的作用是什么"><a href="#React-中-keys-的作用是什么" class="headerlink" title="React 中 keys 的作用是什么"></a>React 中 keys 的作用是什么</h3><blockquote>
+<p>追踪哪些列表中元素被修改、被添加或者被移除的辅助标识，从而减少不必要的元素重渲染</p>
+</blockquote>
+<h3 id="回调渲染模式"><a href="#回调渲染模式" class="headerlink" title="回调渲染模式"></a>回调渲染模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;Twitter username=<span class="string">'leonzhang'</span>&gt;</div><div class="line">  &#123;(user) =&gt; user === <span class="literal">null</span></div><div class="line">    ? &lt;Loading /&gt;</div><div class="line">    : &lt;Badge info=&#123;user&#125; /&gt;&#125;</div><div class="line">&lt;/Twitter&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component, PropTypes &#125; <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> fetchUser <span class="keyword">from</span> <span class="string">'twitter'</span></div><div class="line"><span class="comment">// fetchUser take in a username returns a promise</span></div><div class="line"><span class="comment">// which will resolve with that username's data.</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Twitter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="comment">// finish this</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="回调渲染"><a href="#回调渲染" class="headerlink" title="回调渲染"></a>回调渲染</h4><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component, PropTypes &#125; <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> fetchUser <span class="keyword">from</span> <span class="string">'twitter'</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Twitter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  state = &#123;</div><div class="line">    <span class="attr">user</span>: <span class="literal">null</span>,</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">static</span> propTypes = &#123;</div><div class="line">    <span class="attr">username</span>: PropTypes.string.isRequired,</div><div class="line">  &#125;</div><div class="line">  componentDidMount () &#123;</div><div class="line">    fetchUser(<span class="keyword">this</span>.props.username)</div><div class="line">      .then(<span class="function">(<span class="params">user</span>) =&gt;</span> <span class="keyword">this</span>.setState(&#123;user&#125;))</div><div class="line">  &#125;</div><div class="line">  render () &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.children(<span class="keyword">this</span>.state.user)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="传入-setState-函数的第二个参数的作用是什么"><a href="#传入-setState-函数的第二个参数的作用是什么" class="headerlink" title="传入 setState 函数的第二个参数的作用是什么"></a>传入 setState 函数的第二个参数的作用是什么</h3><blockquote>
+<p>可以用该函数来监听渲染是否完成<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.setState(</div><div class="line">  &#123; <span class="attr">username</span>: <span class="string">'tylermcginnis33'</span> &#125;,</div><div class="line">  () =&gt; <span class="built_in">console</span>.log(<span class="string">'setState has finished and the component has re-rendered.'</span>)</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>同步修改state<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">streak</span>: prevState.streak + props.count</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+</blockquote>
 <h3 id="常见开发漏洞"><a href="#常见开发漏洞" class="headerlink" title="常见开发漏洞"></a>常见开发漏洞</h3><ul>
 <li>xss(cross site scripting): 攻击者向有XSS漏洞的网站中输入(传入)恶意的HTML代码，当其它用户浏览该网站时，这段HTML代码会自动执行，从而达到攻击的目的。如，盗取用户Cookie、破坏页面结构、重定向到其它网站等。</li>
 <li>sql注入: 用户可以提交一段数据库查询代码，根据程序返回的结果，获得某些他想得知的数据，这就是所谓的SQL Injection，即SQL注入。</li>
@@ -404,7 +420,7 @@
     <a class="show pull-left" href="/2017/07/22/rxjs-in-use/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="hide pull-right" href="/">
+    <a class="show pull-right" href="/2017/09/13/frequently-used/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
