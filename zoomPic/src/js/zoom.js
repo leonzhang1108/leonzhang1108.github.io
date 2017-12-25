@@ -274,7 +274,7 @@ function addHTML(value) {
 
 
 function init(value) {
-    value = value || 'http://leonzh.cc/seven/pic/santa.png'
+    value = value || 'https://blog.leonzh.cc/seven/pic/santa.png'
     addHTML(value)
     wheelzoomCanvas({
         canvas: document.querySelector('canvas'),
