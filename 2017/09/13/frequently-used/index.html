@@ -227,7 +227,7 @@
 
   <div class="article-content">
     
-      <h2 id="模板替换"><a href="#模板替换" class="headerlink" title="模板替换"></a>模板替换</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> formateString = <span class="function">(<span class="params">str, data</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> str.replace(<span class="regexp">/\&#123;(\w+)\&#125;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, key</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> data[key] === <span class="literal">undefined</span> ? <span class="string">''</span> : data[key];</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line">formateString(<span class="string">'hello &#123;name&#125;'</span>, &#123;<span class="attr">name</span>: <span class="string">'leon'</span>&#125;)</div></pre></td></tr></table></figure>
+      <h2 id="模板替换"><a href="#模板替换" class="headerlink" title="模板替换"></a>模板替换</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> formateString = <span class="function">(<span class="params">str, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> str.replace(<span class="regexp">/\&#123;(\w+)\&#125;/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> data[key] === <span class="literal">undefined</span> ? <span class="string">''</span> : data[key];</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">formateString(<span class="string">'hello &#123;name&#125;'</span>, &#123;<span class="attr">name</span>: <span class="string">'leon'</span>&#125;)</span><br></pre></td></tr></table></figure>
     
   </div>
 </article>
@@ -260,7 +260,7 @@
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">
