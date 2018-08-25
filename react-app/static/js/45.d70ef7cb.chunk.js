@@ -1,0 +1,2 @@
+webpackJsonp([45],{378:function(s,o,e){var n=e(553);"string"===typeof n&&(n=[[s.i,n,""]]);var t={hmr:!1,transform:void 0};e(376)(n,t);n.locals&&(s.exports=n.locals)},553:function(s,o,e){(s.exports=e(375)(!0)).push([s.i,".bat-logo-wrapper path{fill:#999}","",{version:3,sources:["/Users/leonzhang/Documents/github/typescript/leon-ts-app/src/pages/BatLogo/index.less"],names:[],mappings:"AAAA,uBACE,SAAW,CACZ",file:"index.less",sourcesContent:[".bat-logo-wrapper path {\n  fill: #999;\n}\n"],sourceRoot:""}])}});
+//# sourceMappingURL=45.d70ef7cb.chunk.js.map
