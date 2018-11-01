@@ -1,0 +1,121 @@
+
+
+.point {
+  position:absolute; 
+  top: 180px; 
+  left: 240px;
+}
+.ori-point {
+  width: 100px;
+  position: absolute; 
+  top: 30px; 
+  left: -70px;
+}
+.end-point {
+  position: absolute;
+  top: 96px;
+  left: 96px;
+}
+.black {
+  color: #000;
+}
+.end-point:before,
+.point:before {
+  display: block;
+  content: '';
+  border-radius: 5px;
+  background: black;
+  border: 5px solid transparent;
+}
+.pointer {
+  width: 100px;
+  position: absolute; 
+  top: 180px; 
+  left: 250px;
+}
+.frame1 {
+  position: absolute;
+  top: 60px;
+  left: 30px;
+  height: 125px;
+  width: 215px;
+  border-right: 1px dashed #000!important;
+  border-bottom: 1px dashed #000!important;
+}
+.frame1.moved {
+  top: 0px;
+  left: -60px;
+  height: 185px;
+  width: 305px;
+}
+.zoom1 {
+  position: absolute;
+  top: 60px;
+  left: 30px;
+  margin: 50px auto;
+  width: 900px;
+  height: 600px;
+  box-sizing:border-box;
+  border:1px solid #333; 
+}
+
+.zoom1:before {
+  content:"";
+  position: absolute;
+  left: 97px;
+  top: 270px;
+  width: 99%;
+  height: 50px;
+  box-sizing: border-box;
+  border-bottom: 1px dashed aqua;
+  transform-origin: bottom center;
+  transform: rotateZ(30.6deg) scale(1.414);
+}
+
+.frame2 {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  height: 800px;
+  width: 800px;
+  border-left: 2px dashed #000!important;
+  border-top: 2px dashed #000!important;
+}
+.times {
+  position: absolute;
+  top: 183px;
+  left: 102px;
+  border: 2px solid red!important;
+  width: 139px;
+}
+.times-content {
+  position: absolute;
+  top: 175px;
+  left: 170px;
+}
+
+.end-point-content {
+  width: 100px;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+.formula {
+  position: absolute;
+  top: 150px;
+  left: 550px;
+  width: 250px;
+  color: #000;
+  font-size: 50px!important;
+  text-align: left!important;
+}
+.formula.larged {
+  width: 430px;
+  top: 200px;
+  left: 480px;
+}
+.moved {
+  position: absolute;
+  top: 56px;
+  left: 87px;
+}
