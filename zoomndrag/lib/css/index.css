@@ -11,6 +11,19 @@
   top: 30px; 
   left: -70px;
 }
+.moved .ori-point {
+  left: -82px;
+}
+.moved .ori-point:after {
+  display: block;
+  content: '';
+  width: 0px;
+  border-radius: 5px;
+  background: black;
+  margin-left: 107px;
+  margin-top: -29px;
+  border: 5px solid transparent;
+}
 .end-point {
   position: absolute;
   top: 96px;
@@ -19,13 +32,23 @@
 .black {
   color: #000;
 }
+.red {
+  color: red;
+}
 .end-point:before,
-.point:before {
+.point:before,
+.ori-point-guess:before,
+.move-point-guess:before,
+.any-point:before {
   display: block;
   content: '';
+  width: 0px;
   border-radius: 5px;
   background: black;
   border: 5px solid transparent;
+}
+.ori-point-guess.red:before {
+  background: red;
 }
 .pointer {
   width: 100px;
@@ -35,9 +58,9 @@
 }
 .frame1 {
   position: absolute;
-  top: 60px;
+  top: 55px;
   left: 30px;
-  height: 125px;
+  height: 130px;
   width: 215px;
   border-right: 1px dashed #000!important;
   border-bottom: 1px dashed #000!important;
@@ -119,3 +142,71 @@
   top: 56px;
   left: 87px;
 }
+svg {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+}
+
+.ori-point-guess {
+  width: 30px;
+  position: absolute;
+  top: 151px;
+  left: 97px;
+  text-align: right;
+  line-height: 20px!important;
+}
+
+.ori-point-checked {
+  position: absolute;
+  top: 121px;
+  left: 0;
+  width: 200px;
+  text-align: left;
+  line-height: 20px!important;
+}
+
+.move-point-guess {
+  width: 30px;
+  position: absolute;
+  top: 200px;
+  left: 172px;
+  text-align: right;
+  line-height: 20px!important;
+}
+
+.ul-thoughts {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  font-size: 65px!important;
+}
+.li-absolute {
+  position: absolute;
+  color: aqua;
+  top: 72px;
+}
+.element-wrapper {
+  margin-top: 60px!important;
+}
+.element {
+  font-size: 50px!important;
+  color: aqua;
+  padding: 10px;
+  margin: 30px!important;
+}
+.ori-point-moved {
+  position: absolute;
+  top: 160px;
+  top: 170px;
+  left: 190px;
+  text-align: left;
+  line-height: 20px!important;
+  color: #000;
+}
+
+.any-point {
+  position: absolute;
+  top: 346px;
+  left: 288px;
+} 

@@ -1,4 +1,4 @@
-# svg拖拽缩放公式推导
+# svg拖拽&缩放
 
 <p>
   <small style="margin-top:70px; line-height:1.5em;">

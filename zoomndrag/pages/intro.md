@@ -10,7 +10,7 @@ export default () => (
   <Leonzhang zh='张健亮' en='Leon' loc='Shanghai'>
     <Eleme> @2018 </Eleme>
     <Ctrip> @2017-2018 </Ctrip>
-    <Eshipping> @2015-2016 </Eshipping>
+    <Eshipping> @2015-2017 </Eshipping>
   </Leonzhang>
 )
 ```
