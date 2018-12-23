@@ -1,2 +1,0 @@
-webpackJsonp([35],{391:function(s,n,e){var o=e(648);"string"===typeof o&&(o=[[s.i,o,""]]);var a={hmr:!1,transform:void 0};e(377)(o,a);o.locals&&(s.exports=o.locals)},648:function(s,n,e){(s.exports=e(376)(!0)).push([s.i,".sad-man-wrapper{width:100%}","",{version:3,sources:["/Users/leonzhang/Documents/github/typescript/leon-ts-app/src/pages/SadMan/index.less"],names:[],mappings:"AAAA,iBACE,UAAY,CACb",file:"index.less",sourcesContent:[".sad-man-wrapper {\n  width: 100%;\n}\n"],sourceRoot:""}])}});
-//# sourceMappingURL=35.c94eb652.chunk.js.map
