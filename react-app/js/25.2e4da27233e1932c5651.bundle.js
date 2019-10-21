@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[25,60],{484:function(n,o,t){},84:function(n,o,t){"use strict";t.r(o);var e=t(0),u=t.n(e);t(484);o.default=function(){return u.a.createElement("div",{className:"not-found"},"404 not found")}}}]);
-//# sourceMappingURL=25.2e4da27233e1932c5651.bundle.js.map
