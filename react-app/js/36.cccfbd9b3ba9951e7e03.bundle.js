@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[36],{305:function(t,a,n){"use strict";n.r(a);var s=n(11),i=function(t){var a=t.key,n=t.words,i=t.w,o=t.h;this.text=a,this.x=Math.random()*i,this.y=Math.random()*o,this.font=10*n[a]+"px arial",this.speed=(n[a]>5?n[a]-2.5:n[a])+s.a.random(0,5)};a.default=i}}]);
+//# sourceMappingURL=36.cccfbd9b3ba9951e7e03.bundle.js.map
