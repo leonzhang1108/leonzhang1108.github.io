@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/pages/NotFound/index.tsx"],"names":["className"],"mappings":"mHAAA,kCAKe,UAFE,WAAM,gCAAKA,UAAU,aAAW","file":"js/25.ccf8b3445026e407b38e.bundle.js","sourcesContent":["import React from 'react'\nimport './index.less'\n\nconst NotFound = () => <div className=\"not-found\">404 not found</div>\n\nexport default NotFound\n"],"sourceRoot":""}
