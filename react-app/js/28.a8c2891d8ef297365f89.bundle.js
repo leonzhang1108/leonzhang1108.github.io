@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[28,70],{363:function(e,t,i){},97:function(e,t,i){"use strict";i.r(t);var n=i.p+"img/justice_league.052b3.jpg",s=i(21),o=i(0),r=i.n(o);i(363);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[28,70],{363:function(e,t,i){},97:function(e,t,i){"use strict";i.r(t);var n=i.p+"img/justice_league.052b3.jpg",s=i(19),o=i(0),r=i.n(o);i(363);
 /*!
  * imgzoomer v1.0.2
  * https://github.com/leonzhang1108/imgzoomer
